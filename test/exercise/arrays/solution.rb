@@ -10,7 +10,7 @@ module Exercise
         return -1 if array.empty?
 
         iter = lambda do |start, finish|
-          if start == finish
+          if start == finish # rubocop:disable IfUnlessModifier
             return array[start] == query ? start : -1
           end
 
