@@ -1,8 +1,16 @@
 module Exercise
   module Arrays
     class << self
+      def max_in_array(array)
+        result = array.first
+        for item in array do
+          result = item if item > result
+        end
+        result
+      end
+
       def replace(array)
-        max = array.max
+        max = max_in_array(array)
         array.map { |item| item.positive? ? max : item }
       end
 
