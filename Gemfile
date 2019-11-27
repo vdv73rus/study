@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.7'
 
+gem 'byebug'
 gem 'rake'
 gem 'minitest'
 gem 'factory_girl'

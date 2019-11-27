@@ -1,3 +1,5 @@
+require 'byebug'
+
 module Exercise
   module Arrays
     class << self
@@ -18,9 +20,9 @@ module Exercise
         return -1 if array.empty?
 
         iter = lambda do |start, finish|
-          if start == finish # rubocop:disable IfUnlessModifier
-            return array[start] == query ? start : -1
-          end
+          return -1 if array[start] > query || array[finish] < query
+          return start if array[start] == query
+          return finish if array[finish] == query
 
           center = (start + finish) / 2
           center_element = array[center]
