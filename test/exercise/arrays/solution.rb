@@ -3,7 +3,7 @@ module Exercise
     class << self
       def max_in_array(array)
         result = array.first
-        for item in array do
+        array.each do |item|
           result = item if item > result
         end
         result
