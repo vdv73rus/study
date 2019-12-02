@@ -16,11 +16,7 @@ module Exercise
       def my_map
         result = MyArray.new
 
-        for item in self
-          result << yield(item)
-        end
-
-        result
+        my_reduce(result) { |acc, item| acc << yield(item) }
       end
 
       # Написать свою функцию my_compact
