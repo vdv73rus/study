@@ -21,7 +21,17 @@ module Exercise
       end
 
       # Написать свою функцию my_reduce
-      def my_reduce
+      def my_reduce(acc = nil)
+        head, *tail = self
+
+        source = acc.nil? ? tail : self
+        acc = acc.nil? ? head : acc
+
+        for item in source
+          acc = yield(acc, item)
+        end
+
+        acc
       end
     end
   end
