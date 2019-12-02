@@ -23,11 +23,7 @@ module Exercise
       def my_compact
         result = MyArray.new
 
-        for item in self
-          result << item unless item.nil?
-        end
-
-        result
+        my_reduce(result) { |acc, item| item.nil? ? acc : acc << item }
       end
 
       # Написать свою функцию my_reduce
