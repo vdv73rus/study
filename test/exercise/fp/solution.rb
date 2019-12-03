@@ -39,8 +39,16 @@ module Exercise
         total_countries >= 2
       end
 
-      def chars_count(_films, _threshold)
-        0
+      def chars_count(films, threshold)
+        films.reduce(0) { |acc, film| film_has_good_rating?(film, threshold) ? acc + number_of_characters(film['name']) : acc }
+      end
+
+      def film_has_good_rating?(film, threshold)
+        film['rating_kinopoisk'].to_f >= threshold
+      end
+
+      def number_of_characters(string)
+        string.count('и')
       end
     end
   end
